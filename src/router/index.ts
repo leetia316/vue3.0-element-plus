@@ -1,16 +1,32 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "LAYOUT",
+    path: "/login",
+    name: "LOGIN",
     component: () =>
-      import(/* webpackChunkName: "layout" */ "@/views/index.vue")
+      import(/* webpackChunkName: "login" */ "@/views/login/index.vue")
   },
+  {
+    path: "/404",
+    name: "ERROR",
+    component: () =>
+      import(/* webpackChunkName: "err" */ "@/views/404/index.vue")
+  },
+  {
+    path: "/",
+    redirect: "/main"
+  },
+  {
+    path: "/main",
+    name: "MAIN",
+    component: () =>
+      import(/* webpackChunkName: "err" */ "@/views/main/index.vue")
+  }
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 });
 

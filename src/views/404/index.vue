@@ -1,6 +1,6 @@
 <template>
   <div class='base'>
-    base
+    404
   </div>
 </template>
 
@@ -11,7 +11,7 @@ reactive,
 toRefs
 } from 'vue'
 export default defineComponent ({
-  name: 'base',
+  name: 'ERROR',
   setup() {
      const data: any = reactive({
 
